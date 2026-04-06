@@ -1,0 +1,17 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Airflow
+logs/
+airflow.db
+airflow-*.pid
+
+# dbt & DuckDB
+target/
+dbt_packages/
+*.duckdb
+
+# OS files
+.DS_Store
