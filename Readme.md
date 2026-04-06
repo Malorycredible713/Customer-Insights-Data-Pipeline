@@ -1,18 +1,20 @@
-🚀 Customer Insights Pipeline: Airflow, dbt & DuckDB
+🚀 **Customer Insights Pipeline: Airflow, dbt & DuckDB**
+
 A modern, end-to-end data engineering pipeline for transforming raw transactional data into actionable business intelligence. This project automates the journey from raw CSVs to a tested analytics mart, answering the core question: "Who are our most valuable customers?"
 
-🏗️ The Architecture
+🏗️ **The Architecture**
+
 The pipeline demonstrates professional orchestration and analytics engineering:
 
-Apache Airflow: Orchestrates the workflow and handles file movement.
+**Apache Airflow**: Orchestrates the workflow and handles file movement.
 
-dbt (data build tool): Manages SQL transformations, data quality testing, and documentation.
+**dbt (data build tool)**: Manages SQL transformations, data quality testing, and documentation.
 
-DuckDB: Acts as a high-performance, in-process analytical database (OLAP).
+**DuckDB**: Acts as a high-performance, in-process analytical database (OLAP).
 
-Python/Pandas: Performs the final data validation and top-tier customer reporting.
+**Python/Pandas**: Performs the final data validation and top-tier customer reporting.
 
-📁 Project Structure
+📁 **Project Structure**
 Plaintext
 .
 ├── dags/
@@ -30,11 +32,12 @@ Plaintext
 ├── docker-compose.yaml            # Multi-container orchestration
 └── requirements.txt               # Python dependencies
 
-⚙️ Pipeline Workflow
-1. Automated Ingestion
+⚙️ **Pipeline Workflow**
+
+1. **Automated Ingestion*
 The Airflow BashOperator moves raw CSV files from the project root into the dbt seeds/ directory. This ensures the pipeline is self-contained and reproducible.
 
-2. Transformations with dbt
+2. *Transformations with dbt*
 The pipeline follows the Medallion Architecture logic:
 
 Staging: Cleaning and renaming raw sources (stg_customers, etc.).
@@ -43,21 +46,22 @@ Intermediate: Combining orders and payments to calculate revenue.
 
 Marts: Final business-ready tables (dim_customers, fct_orders).
 
-3. Data Quality & Integrity
+3. *Data Quality & Integrity*
 Every run includes automated dbt tests:
 
 unique and not_null constraints on primary keys.
 
 Referential integrity (Relationship tests) between orders and customers.
 
-📊 Final Output: Top 10 Most Valuable Customers
+📊 **Final Output: Top 10 Most Valuable Customers**
 The pipeline culminates in a Lifetime Value (LTV) report:
 
 Rank	Customer	Total Lifetime Value
-1	Howard R.	99.00
-2	Kathleen P.	65.00
-3	Billy L.	47.00
-🛠️ Technologies Used
+1	Howard R.	9900.0
+2	Kathleen P.	6500.0
+3	Billy L.	4700.0
+
+🛠️ **Technologies Used**
 Orchestration: Apache Airflow 2.10+
 
 Transformations: dbt-duckdb
@@ -66,7 +70,7 @@ Database: DuckDB
 
 Environment: Python 3.12, WSL2 / Docker
 
-▶️ How to Run
+▶️ **How to Run**
 Option A: Local Setup (WSL/Linux)
 Clone & Install:
 
@@ -92,12 +96,12 @@ Bash
 docker-compose up --build
 Access the Airflow UI at localhost:8080.
 
-📈 Challenges Overcome
+📈 **Challenges Overcome**
 Path Resolution: Configured dynamic workspace rooting to bridge the gap between Windows/WSL and dbt project-dirs.
 
 Metadata Management: Resolved Airflow serialization conflicts by implementing a clean metadata reset and custom DAG bundling strategy.
 
-🙌 Acknowledgements
+🙌 **Acknowledgements**
 The Jaffle Shop dataset provided by dbt Labs.
 
 The community resources for DuckDB and Airflow integration.
