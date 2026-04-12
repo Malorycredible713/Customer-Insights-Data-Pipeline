@@ -99,26 +99,30 @@ Local Setup (WSL/Linux)
 Clone & Install:
 
 Bash
+
 git clone https://github.com/Triet00/Customer-Insights-Data-Pipeline.git
+
 cd Customer-Insights-Data-Pipeline
+
 python -m venv venv && source venv/bin/activate
+
 pip install -r requirements.txt
+
 Initialize Airflow:
 
 Bash
+
 export AIRFLOW_HOME=$(pwd)
+
 export AIRFLOW__CORE__LOAD_EXAMPLES=False
+
 airflow db init
+
 Trigger the Pipeline:
 
 Bash
-airflow tasks test dbt_jaffle_shop_pipeline dbt_build_pipeline 2026-04-01
-Option B: Docker (Recommended)
-Run the entire stack (Scheduler + Webserver + dbt) with a single command:
 
-Bash
-docker-compose up --build
-Access the Airflow UI at localhost:8080.
+airflow tasks test dbt_jaffle_shop_pipeline dbt_build_pipeline 2026-04-01
 
 📈 **Challenges Overcome**
 
